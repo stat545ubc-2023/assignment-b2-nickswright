@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# missing.values
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of missing.values is to count the number of missing values from each column of a dataset grouped by one column.
+
+## Installation
+
+You can install the development version of missing.values like so:
+```r
+# install.packages("devtools")
+devtools::install_github("stat545ubc-2023/missing.values")
+
+```
+
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(missing.values)
+#This example computes the number of missing values in the `airquality` dataset grouped by the `cyl` #column. 
+
+count_all_missing_by_group(airquality, Month)
+```
+
+This example has the same output as the last example, but shows off an alternative way of invoking the `count_all_missing_by_group()`: piping the dataset into the function. 
+
+```{r} 
+airquality |> count_all_missing_by_group(Month) 
+```
+
+The optional `.groups` argument allows us to keep the output grouped by the grouping column. See example below; notice how the output is a grouped tibble, rather than the ungrouped tibble output of the earlier examples. 
+
+```{r} 
+count_all_missing_by_group(airquality, Month, .groups = "keep")
+```
