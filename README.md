@@ -24,7 +24,7 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(missing.values)
-#This example computes the number of missing values in the `airquality` dataset grouped by the `cyl` #column. 
+#This example computes the number of missing values in the `penguins` dataset grouped by the 'species'
 library(palmerpenguins)
 count_all_missing_by_group(penguins, species)
 #> # A tibble: 3 × 8
